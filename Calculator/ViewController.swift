@@ -25,5 +25,24 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    
+    
+    @IBAction func performOperation(_ sender: UIButton) {
+        userInTheMiddleTyping = false
+        
+        switch sender.currentTitle! {
+        case "π":
+            display.text =  String(Double.pi)
+        case "√":
+            let operand = Double(display.text!)!
+            display.text = "\(operand.squareRoot())"
+        default:
+            break
+        }
+        
+    }
+    
+    
 }
 
