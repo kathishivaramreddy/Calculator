@@ -26,17 +26,23 @@ class ViewController: UIViewController {
     }
     
     
-    
+    var displayValue: Double {
+        get {
+            return Double(display.text!)!
+        }
+        set {
+            display.text = String(newValue)
+        }
+    }
     
     @IBAction func performOperation(_ sender: UIButton) {
         userInTheMiddleTyping = false
         
         switch sender.currentTitle! {
         case "π":
-            display.text =  String(Double.pi)
+            displayValue = Double.pi
         case "√":
-            let operand = Double(display.text!)!
-            display.text = "\(operand.squareRoot())"
+            displayValue = displayValue.squareRoot()
         default:
             break
         }
